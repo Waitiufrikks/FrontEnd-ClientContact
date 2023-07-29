@@ -17,6 +17,7 @@ export interface IClientProviderProps {
 
 export interface IClientContext {
   client: IClient | null;
+  loginClient: (data: IClient) => Promise<void>;
   registerClient: (data: IClient) => Promise<void>;
 
 }
