@@ -1,4 +1,5 @@
 import { UseFormRegisterReturn } from "react-hook-form";
+import StyledDivInput from "./style";
 
 interface IInput {
   text: string;
@@ -19,7 +20,7 @@ const Input = ({
   value,
 }: IInput) => {
   return (
-    <div>
+    <StyledDivInput>
       <label htmlFor={label}>{text}</label>
       <input
         id={id}
@@ -28,7 +29,7 @@ const Input = ({
         {...register}
         value={value}
       />
-    </div>
+    </StyledDivInput>
   );
 };
 
