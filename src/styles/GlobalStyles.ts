@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white:#FFFFFF;
 
     --color-grey-0:#F5F5F5;
+    --color-grey-100:#868E96;
     --color-grey-300:#4E5056;
     --color-grey-600:#252A34;
 
@@ -34,12 +35,13 @@ const GlobalStyles = createGlobalStyle`
 
     --font-text-default:'Inter', sans-serif;
     --title-size-1:2rem;
-    --title-size-2:1.125rem;
-    --title-size-3:0.875rem;
+    --title-size-2:1.5rem;
+    --title-size-3:1.25rem;
+    --title-size-4:0.875rem;
     
-    --text-size-default:1rem;
     --text-size-large: 1.5rem;
-    --text-size-medium: 1.375rem;
+    --text-size-medium: 1.25rem;
+    --text-size-default:1rem;
     --text-size-small:0.875rem;
     --text-size-smallest:0.75rem;
 

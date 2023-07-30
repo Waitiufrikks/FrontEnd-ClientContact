@@ -1,11 +1,12 @@
 import { FormLogin } from "../../components/FormLogin";
+import StyledDivLogin from "./style";
 
 const LoginPage = () => {
   return (
-    <div className="form__container">
-
+    <StyledDivLogin className="form__container">
+      <h1>Contacts-Client</h1>
       <FormLogin />
-    </div>
+    </StyledDivLogin>
   );
 };
 export default LoginPage
