@@ -1,16 +1,13 @@
-import  FormRegister  from "../../components/FormSignUp"
+import FormRegister from "../../components/FormSignUp";
+import HeaderRegister from "../../components/HeaderRegister";
+import StyledRegisterPageDiv from "./style";
 
-const SignUpPage = ()=>(
+const SignUpPage = () => (
+  <StyledRegisterPageDiv>
+    <HeaderRegister />
 
-  <>
-    <div>
-      <h1>"Client Contact</h1>
-      <div>
-        <h2>Crie sua conta</h2>
-      <FormRegister/>
-      </div>
-    </div>
-  </>
-)
+    <FormRegister />
+  </StyledRegisterPageDiv>
+);
 
-export default SignUpPage
+export default SignUpPage;
