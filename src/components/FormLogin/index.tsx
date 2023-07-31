@@ -20,7 +20,7 @@ export const FormLogin = () => {
   });
 
   const submit: SubmitHandler<IClient> = (data) => {
-    console.log(data);
+ 
     loginClient(data);
   };
   return (
