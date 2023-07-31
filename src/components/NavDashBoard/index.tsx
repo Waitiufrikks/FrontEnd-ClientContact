@@ -1,11 +1,16 @@
 import StyledNav from "./style";
 
-const Nav = () => {
+interface NavProps {
+  logout: () => void;
+}
+
+const Nav: React.FC<NavProps> = ({ logout }) => {
   return (
     <StyledNav>
       <h1>Clients-Contacts</h1>
-      <button>Sair</button>
+      <button onClick={logout}>Sair</button>
     </StyledNav>
   );
 };
-export default Nav
+
+export default Nav;

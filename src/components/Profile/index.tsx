@@ -1,12 +1,13 @@
+import { IClient } from "../../provides/ClientContext/@types";
 import StyledDiv from "./style";
 
-const ProfileDivContainer = () => {
+const ProfileDivContainer = ({ client }: { client: IClient }) => {
   return (
     <StyledDiv>
-      <h2>Olá,Nome do usuario</h2>
+      <h2>Olá,{client?.full_name}</h2>
       <div className="detail-profile">
-        <span>email </span>
-        <span>telefone</span>
+        <span>{client?.email} </span>
+        <span>{client?.phone}</span>
       </div>
     </StyledDiv>
   );

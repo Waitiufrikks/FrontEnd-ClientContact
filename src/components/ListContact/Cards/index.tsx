@@ -1,13 +1,19 @@
+import { IContact } from "../../../provides/ClientContext/@types";
 import StyledCard from "./style";
 
-const Cards = () => {
+interface CardsProps {
+  contact: IContact;
+}
+
+const Cards: React.FC<CardsProps> = ({ contact }) => {
   return (
     <StyledCard>
       <div>
-        <h2>nome do contato</h2>
-        <span>email do contato</span>
+        <h2>{contact.full_name}</h2>
+        <span>{contact.email}</span>
       </div>
     </StyledCard>
   );
 };
+
 export default Cards;
