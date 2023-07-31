@@ -6,9 +6,12 @@ import Nav from "../../components/NavDashBoard";
 import ProfileDivContainer from "../../components/Profile";
 import StyledDivDashBoard from "./style";
 import { ClientContext } from "../../provides/ClientContext";
+import { ModalCreateContact } from "../../components/Modal/ModalCreate";
+import { ContactContext } from "../../provides/ContactContext";
 
 const DashBoardPage = () => {
   const { client, logout } = useContext(ClientContext);
+  const { showModal} = useContext(ContactContext);
 
   return (
     <StyledDivDashBoard>
@@ -18,7 +21,9 @@ const DashBoardPage = () => {
         <HeaderDivListContact />
         <ListContactContainer />
       </main>
+      {showModal && <ModalCreateContact />}
     </StyledDivDashBoard>
+    
   );
 };
 export default DashBoardPage;
