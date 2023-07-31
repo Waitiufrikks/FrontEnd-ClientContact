@@ -1,4 +1,4 @@
-import FormRegister from "../../components/FormSignUp";
+import FormRegister from "../../components/Forms/FormSignUp";
 import HeaderRegister from "../../components/HeaderRegister";
 import StyledRegisterPageDiv from "./style";
 

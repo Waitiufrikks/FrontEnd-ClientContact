@@ -1,3 +1,5 @@
+import { IContact } from "../ContactContext/@types";
+
 export interface IClient {
   id?: number;
   full_name: string;
@@ -6,12 +8,7 @@ export interface IClient {
   contacts?:IContact[]
   phone?: number;
 }
-export interface IContact {
-  id?: number;
-  full_name: string;
-  email: string;
-  phone?: number;
-}
+
 export interface IUpdateProfile {
   name: string;
   email: string;

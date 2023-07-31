@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Input from "../Input";
-import { ClientContext } from "../../provides/ClientContext";
-import { IClient } from "../../provides/ClientContext/@types";
+import Input from "../../Input";
+import { ClientContext } from "../../../provides/ClientContext";
+import { IClient } from "../../../provides/ClientContext/@types";
 import { schema } from "./schema";
 import StyledFormContainerLogin from "./style";
 import { Link } from "react-router-dom";
@@ -20,7 +20,6 @@ export const FormLogin = () => {
   });
 
   const submit: SubmitHandler<IClient> = (data) => {
- 
     loginClient(data);
   };
   return (
@@ -46,7 +45,9 @@ export const FormLogin = () => {
         />
         <span>{errors.password?.message}</span>
         <button type="submit">Entrar</button>
-        <span className="span-redirect-register">Ainda nao possui uma conta ?</span>
+        <span className="span-redirect-register">
+          Ainda nao possui uma conta ?
+        </span>
         <div className="container-button-signUp">
           {/* POSSIVEL COMPONENTE */}
           <Link to="/register">Cadastrar-se</Link>

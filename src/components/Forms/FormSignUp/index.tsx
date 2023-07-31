@@ -1,11 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ClientContext } from "../../provides/ClientContext";
-import { IClient } from "../../provides/ClientContext/@types";
+import { ClientContext } from "../../../provides/ClientContext";
+import { IClient } from "../../../provides/ClientContext/@types";
 
 import { schema } from "./validator";
-import Input from "../Input";
+import Input from "../../Input";
 import StyledFormContainerRegister from "./style";
 
 const FormRegister = () => {

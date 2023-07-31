@@ -1,13 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import api from "../../service/api";
-import {
-  IClient,
-  IClientContext,
-  IClientProviderProps,
-  IContact,
-} from "./@types";
+import { IClient, IClientContext, IClientProviderProps } from "./@types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { IContact } from "../ContactContext/@types";
 
 export const ClientContext = createContext({} as IClientContext);
 

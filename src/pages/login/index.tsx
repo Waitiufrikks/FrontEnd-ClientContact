@@ -1,4 +1,4 @@
-import { FormLogin } from "../../components/FormLogin";
+import { FormLogin } from "../../components/Forms/FormLogin";
 import StyledDivLogin from "./style";
 
 const LoginPage = () => {
@@ -9,4 +9,4 @@ const LoginPage = () => {
     </StyledDivLogin>
   );
 };
-export default LoginPage
+export default LoginPage;
