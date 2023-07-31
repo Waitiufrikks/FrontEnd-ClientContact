@@ -22,7 +22,6 @@ const FormRegister = () => {
   });
 
   const submit: SubmitHandler<IClient> = (data) => {
-    console.log(data);
     registerClient(data);
     reset();
   };
