@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useContext, useEffect } from "react";
+import { useContext, } from "react";
 import HeaderDivListContact from "../../components/HeaderListContact";
 import ListContactContainer from "../../components/ListContact";
 import Nav from "../../components/NavDashBoard";
@@ -8,7 +8,6 @@ import StyledDivDashBoard from "./style";
 import { ClientContext } from "../../provides/ClientContext";
 import { ModalCreateContact } from "../../components/Modal/ModalCreate";
 import { ContactContext } from "../../provides/ContactContext";
-import api from "../../service/api";
 
 const DashBoardPage = () => {
   const { client, logout,} = useContext(ClientContext);
