@@ -5,7 +5,7 @@ const HeaderRegister = () => (
   <StyledHeaderRegisterDiv className="header-register">
     <h1>Client Contact</h1>
     <div className="button-redirect-login">
-      <Link to={"/login"}>Voltar</Link>
+      <Link to={"/"}>Voltar</Link>
     </div>
   </StyledHeaderRegisterDiv>
 );

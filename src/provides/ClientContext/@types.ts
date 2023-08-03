@@ -28,4 +28,5 @@ export interface IClientContext {
   setContacts: React.Dispatch<React.SetStateAction<IContact[]>>
   loginClient: (data: IClient) => Promise<void>;
   registerClient: (data: IClient) => Promise<void>;
+  isLoading: boolean
 }
