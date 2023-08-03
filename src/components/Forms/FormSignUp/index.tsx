@@ -35,10 +35,10 @@ const FormRegister = () => {
           type="text"
           id="name"
           placeholder="Seu nome completo"
-          register={register("name")}
+          register={register("full_name")}
           text="Name"
         />
-        <span>{errors.name?.message}</span>
+        <span>{errors.full_name?.message}</span>
 
         <Input
           label="Email"
