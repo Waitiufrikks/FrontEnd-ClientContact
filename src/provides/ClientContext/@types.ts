@@ -5,15 +5,15 @@ export interface IClient {
   full_name: string;
   email: string;
   password: string;
-  contacts?:IContact[]
-  phone?: number;
+  contacts?: IContact[];
+  phone?: string;
 }
 
 export interface IUpdateProfile {
   name: string;
   email: string;
   password: string;
-  phone?: number;
+  phone?: string;
 }
 
 export interface IClientProviderProps {
@@ -22,11 +22,11 @@ export interface IClientProviderProps {
 
 export interface IClientContext {
   client: IClient | null;
-  contacts: IContact[] | null
+  contacts: IContact[] | null;
   logout: () => void;
   setClient: React.Dispatch<React.SetStateAction<IClient | null>>;
-  setContacts: React.Dispatch<React.SetStateAction<IContact[]>>
+  setContacts: React.Dispatch<React.SetStateAction<IContact[]>>;
   loginClient: (data: IClient) => Promise<void>;
   registerClient: (data: IClient) => Promise<void>;
-  isLoading: boolean
+  isLoading: boolean;
 }
