@@ -6,14 +6,14 @@ export interface IClient {
   email: string;
   password: string;
   contacts?: IContact[];
-  phone?: string;
+  phone?: string | null | undefined;
 }
 
-export interface IUpdateProfile {
-  name: string;
-  email: string;
-  password: string;
-  phone?: string;
+export interface IUpdateClient {
+  name?: string;
+  email?: string;
+  phone?: string | null | undefined;
+  password?: string;
 }
 
 export interface IClientProviderProps {
@@ -29,4 +29,10 @@ export interface IClientContext {
   loginClient: (data: IClient) => Promise<void>;
   registerClient: (data: IClient) => Promise<void>;
   isLoading: boolean;
+  updateClient: (data: IUpdateClient) => Promise<void>;
+  deleteClient: (id: number) => Promise<void>
+  modalClientOpen: (client: IClient | null) => void;
+  showModalClient: boolean;
+  clientSelect: IContact | null;
+  setShowModalClient: React.Dispatch<React.SetStateAction<boolean>>;
 }

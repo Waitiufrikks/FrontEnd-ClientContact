@@ -1,38 +1,39 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ContactContext } from "../../../provides/ContactContext";
-import { IContact } from "../../../provides/ContactContext/@types";
+import { ClientContext } from "../../../provides/ClientContext";
+import { IClient } from "../../../provides/ClientContext/@types";
 import Input from "../../Input";
+import StyledFormUpdatedClient from "./style";
 import { schema } from "./schema";
-import StyledFormUpdatedContact from "./style";
 
-const FormUpdateContact = () => {
-  const { contactSelect, deleteContact, contactUpdate } =
-    useContext(ContactContext);
+const FormUpdateClient = () => {
+  const { clientSelect, deleteClient, updateClient } =
+    useContext(ClientContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IContact>({
+  } = useForm<IClient>({
     mode: "onChange",
     resolver: zodResolver(schema),
     defaultValues: {
-      full_name: contactSelect?.full_name,
-      email: contactSelect?.email,
-      phone: contactSelect?.phone,
+      full_name: clientSelect?.full_name,
+      email: clientSelect?.email,
+      phone: clientSelect?.phone,
     },
   });
-  const submit: SubmitHandler<IContact> = (data: IContact) => {
-    contactUpdate(data);
+  const submit: SubmitHandler<IClient> = (data: IClient) => {
+    updateClient(data);
   };
 
   const handleSubmitDelete = (id: number | undefined) => {
-    deleteContact(id!);
+    deleteClient(id!);
   };
 
   return (
-    <StyledFormUpdatedContact>
+    <StyledFormUpdatedClient>
       <form action="" onSubmit={handleSubmit(submit)}>
         <Input
           label="Nome"
@@ -61,15 +62,23 @@ const FormUpdateContact = () => {
           register={register("phone")}
         />
         <span>{errors.phone?.message}</span>
-        
+        <Input
+          label="Password"
+          type="password"
+          placeholder="Sua senha"
+          text="Senha"
+          id="password"
+          register={register("password")}
+        />
+        <span>{errors.password?.message}</span>
         <div className="container-buttons">
-          <button className="btn-update" type="submit">Atualizar contato</button>
-          <button className="btn-delete" onClick={() => handleSubmitDelete(contactSelect?.id)}>
+          <button className="btn-update-client" type="submit">Atualizar client</button>
+          <button className="btn-delete" onClick={() => handleSubmitDelete(clientSelect?.id)}>
             Excluir
           </button>
         </div>
       </form>
-    </StyledFormUpdatedContact>
+    </StyledFormUpdatedClient>
   );
 };
-export default FormUpdateContact;
+export default FormUpdateClient;

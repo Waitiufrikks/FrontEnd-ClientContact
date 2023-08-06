@@ -9,9 +9,10 @@ import { ClientContext } from "../../provides/ClientContext";
 import { ModalCreateContact } from "../../components/Modal/ModalCreate";
 import { ContactContext } from "../../provides/ContactContext";
 import { ModalContact } from "../../components/Modal/ModalContact";
+import { ModalClient } from "../../components/Modal/ModalClient";
 
 const DashBoardPage = () => {
-  const { client, logout,} = useContext(ClientContext);
+  const { client, logout,showModalClient} = useContext(ClientContext);
   const { showModal,showModalContact} = useContext(ContactContext);
   return (
     <>
@@ -23,8 +24,10 @@ const DashBoardPage = () => {
           <ListContactContainer />
         </main>
       </StyledDivDashBoard>
+      {}
       {showModal && <ModalCreateContact />}
       {showModalContact && <ModalContact />}
+      {showModalClient && <ModalClient />}
     </>
   );
 };

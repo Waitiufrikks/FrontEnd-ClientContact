@@ -18,10 +18,8 @@ export const ContactProvider = ({ children }: IContactProviderProps) => {
 
   const modalContactOpen = (contact: IContact | null) => {
     if (contact) {
-      console.log(`Abrindo modal do ${contact.full_name}`);
       setContactSelect(contact);
     } else {
-      console.log("fechando modal");
       setContactSelect(null);
     }
     setShowModalContact((prevShowModal) => !prevShowModal);
@@ -67,7 +65,6 @@ export const ContactProvider = ({ children }: IContactProviderProps) => {
   const contactUpdate = async (data: IContact) => {
     try {
       const token = window.localStorage.getItem("@TOKEN");
-      console.log(contactSelect);
       const response = await api.patch(`/contacts/${contactSelect?.id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,

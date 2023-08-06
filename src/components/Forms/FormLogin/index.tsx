@@ -49,7 +49,6 @@ export const FormLogin = () => {
           Ainda nao possui uma conta ?
         </span>
         <div className="container-button-signUp">
-          {/* POSSIVEL COMPONENTE */}
           <Link to="/register">Cadastrar-se</Link>
         </div>
       </form>

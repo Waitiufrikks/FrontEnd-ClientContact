@@ -11,7 +11,7 @@ const StyledFormUpdatedContact = styled.div`
       justify-content:space-between;
       button.btn-update{
         height:40px;
-        width:200px;
+        width:160px;
         font-size:var(--text-size-default);
         font-weight:600;
         color:var(--color-grey-800);

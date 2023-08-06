@@ -11,9 +11,11 @@ export const ProtectedRoutes = () => {
     if (!token) {
       navigate("/");
     }
-  }, []);
+  }, [token]); 
+
   if (isLoading) {
     return <div>Carregando ...</div>;
   }
+
   return client ? <Outlet /> : null;
 };
