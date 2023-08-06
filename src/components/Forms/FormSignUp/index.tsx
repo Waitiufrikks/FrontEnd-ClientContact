@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ClientContext } from "../../../provides/ClientContext";
 import { IClient } from "../../../provides/ClientContext/@types";
 
-import { schema } from "./validator";
+import { schema } from "./schema";
 import Input from "../../Input";
 import StyledFormContainerRegister from "./style";
 
@@ -59,6 +59,15 @@ const FormRegister = () => {
           text="Senha"
         />
         <span>{errors.password?.message}</span>
+        <Input
+          label="Telefone"
+          type="tel"
+          id="phone"
+          placeholder="Seu telefone"
+          register={register("phone")}
+          text="Telefone"
+        />
+        <span>{errors.phone?.message}</span>
 
         <button type="submit">Cadastrar</button>
       </form>

@@ -22,31 +22,31 @@ export const ClientProvider = ({ children }: IClientProviderProps) => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("@TOKEN");
     if (!token) {
       return;
     }
     api.defaults.headers.common.Authorization = `Bearer ${token}`;
   });
-
-  if (token) {
-    const readerClient = async () => {
-      try {
-        const response = await api.get(`clients/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setClient(response.data);
-        setContacts(response.data.contacts);
-        setIsLoading(false)
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false)
-      }
-    };
-    readerClient();
-  }
+  useEffect(() => {
+    if (token) {
+      const readerClient = async () => {
+        try {
+          const response = await api.get(`clients/profile`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setClient(response.data);
+          setContacts(response.data.contacts);
+          setIsLoading(false);
+        } catch (error) {
+          setIsLoading(false);
+          console.log(error);
+        }
+      };
+      readerClient();
+    }
+  }, []);
 
   const loginClient = async (data: IClient): Promise<void> => {
     try {
@@ -82,7 +82,7 @@ export const ClientProvider = ({ children }: IClientProviderProps) => {
     setContacts,
     loginClient,
     registerClient,
-    isLoading
+    isLoading,
   };
   return (
     <ClientContext.Provider value={contextValue}>

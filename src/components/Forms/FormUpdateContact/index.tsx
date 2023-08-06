@@ -1,15 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import Input from "../../Input";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ContactContext } from "../../../provides/ContactContext";
 import { useContext } from "react";
-import { schema } from "./schema";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { ContactContext } from "../../../provides/ContactContext";
 import { IContact } from "../../../provides/ContactContext/@types";
-import StyledFormContainerContact from "./style";
+import Input from "../../Input";
+import { schema } from "./schema";
+import StyledFormUpdatedContact from "./style";
 
-const FormCreateContact = () => {
-  const { createContactClient } = useContext(ContactContext);
-
+const FormUpdateContact = () => {
+  const { contactSelect, deleteContact, contactUpdate } =
+    useContext(ContactContext);
   const {
     register,
     handleSubmit,
@@ -17,13 +17,23 @@ const FormCreateContact = () => {
   } = useForm<IContact>({
     mode: "onChange",
     resolver: zodResolver(schema),
+    defaultValues: {
+      full_name: contactSelect?.full_name,
+      email: contactSelect?.email,
+      phone: contactSelect?.phone,
+    },
   });
-
   const submit: SubmitHandler<IContact> = (data: IContact) => {
-    createContactClient(data);
+    console.log("dentro do submit", data);
+    contactUpdate(data);
   };
+
+  const handleSubmitDelete = (id: number | undefined) => {
+    deleteContact(id!);
+  };
+
   return (
-    <StyledFormContainerContact>
+    <StyledFormUpdatedContact>
       <form action="" onSubmit={handleSubmit(submit)}>
         <Input
           label="Nome"
@@ -48,17 +58,18 @@ const FormCreateContact = () => {
           type="text"
           placeholder="Seu Telefone"
           text="Telefone"
-          id="phone"
+          id="telefone"
           register={register("phone")}
         />
         <span>{errors.phone?.message}</span>
-
-
-        <button className="btn-send" type="submit">
-          Cadastrar
-        </button>
+        <div className="container-buttons">
+          <button className="btn-update" type="submit">Atualizar contato</button>
+          <button className="btn-delete" onClick={() => handleSubmitDelete(contactSelect?.id)}>
+            Excluir
+          </button>
+        </div>
       </form>
-    </StyledFormContainerContact>
+    </StyledFormUpdatedContact>
   );
 };
-export default FormCreateContact;
+export default FormUpdateContact;

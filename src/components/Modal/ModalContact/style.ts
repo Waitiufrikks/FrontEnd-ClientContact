@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-const StyledDivModal = styled.div`
+const StyledDivModalContact = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -16,11 +16,10 @@ const StyledDivModal = styled.div`
     height: auto;
     top: 50%;
     left: 50%;
-    border-bottom-left-radius:var(--radius-default);
-    border-bottom-right-radius:var(--radius-default);
+    border-bottom-left-radius: var(--radius-default);
+    border-bottom-right-radius: var(--radius-default);
     background: var(--color-grey-800);
     transform: translate(-50%, -50%);
   }
-
 `;
-export default StyledDivModal;
+export default StyledDivModalContact;

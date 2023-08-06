@@ -8,10 +8,11 @@ import StyledDivDashBoard from "./style";
 import { ClientContext } from "../../provides/ClientContext";
 import { ModalCreateContact } from "../../components/Modal/ModalCreate";
 import { ContactContext } from "../../provides/ContactContext";
+import { ModalContact } from "../../components/Modal/ModalContact";
 
 const DashBoardPage = () => {
   const { client, logout,} = useContext(ClientContext);
-  const { showModal,} = useContext(ContactContext);
+  const { showModal,showModalContact} = useContext(ContactContext);
   return (
     <>
       <StyledDivDashBoard>
@@ -23,6 +24,7 @@ const DashBoardPage = () => {
         </main>
       </StyledDivDashBoard>
       {showModal && <ModalCreateContact />}
+      {showModalContact && <ModalContact />}
     </>
   );
 };
